@@ -1,5 +1,5 @@
 # IR integration
-IR control integration.
+IR control integration. This integration loads up the saved IR codes and send IR blasting commands to the dock from a `remote` interface.
 
 ## Works with the following entity type(s):
 - remote
