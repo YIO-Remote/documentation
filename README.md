@@ -92,7 +92,7 @@ Example config.json file for openHAB Integration will be available later.
 ### IR
 IR Integration supporting IR code blasting via the YIO Dock.  
 The currently supported devices are:
-- [ ] Remotes
+- [x] Remotes
 
 Example config.json file for IR Integration will be available later.
 
