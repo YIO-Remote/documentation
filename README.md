@@ -26,6 +26,7 @@ Our **documentation repository** is split into sections as visible below:
 Additional helpful documentation can be found for
 - [YIO API](https://github.com/YIO-Remote/documentation/blob/master/yio-api.md)
 - [Homey Integration](https://github.com/YIO-Remote/documentation/blob/master/integration.homey.md)
+- [IR Integration](https://github.com/YIO-Remote/documentation/blob/master/integration.ir.md)
 
 ## Dock Software
 In the Dock Software repository you can find the latest build of the YIO Dock Software.  
@@ -87,6 +88,13 @@ The currently supported devices are:
 - [ ] PVR / TV
 
 Example config.json file for openHAB Integration will be available later.
+
+### IR
+IR Integration supporting IR code blasting via the YIO Dock.  
+The currently supported devices are:
+- [ ] Remotes
+
+Example config.json file for IR Integration will be available later.
 
 ## Operating System
 We choose to use Buildroot to create YIO's underlaying Operating System.  
