@@ -1,4 +1,4 @@
-### IR integration
+# IR integration
 IR control integration.
 
 ## Works with the following entity type(s):
