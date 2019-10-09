@@ -78,6 +78,12 @@ The currently supported devices are:
 
 Example config.json file for Homey Integration will be available later.
 
+### Infrared (IR)
+IR Integration supporting IR code blasting via the YIO Dock.  
+The currently supported devices are:
+- [x] Remotes
+
+Example config.json file for IR Integration will be available later.
 ### openHAB
 Third SmartHome Backend System that is used to develop the YIO Sofware with (currently under initial development).  
 The currently supported devices are:
@@ -88,13 +94,6 @@ The currently supported devices are:
 - [ ] PVR / TV
 
 Example config.json file for openHAB Integration will be available later.
-
-### IR
-IR Integration supporting IR code blasting via the YIO Dock.  
-The currently supported devices are:
-- [x] Remotes
-
-Example config.json file for IR Integration will be available later.
 
 ## Operating System
 We choose to use Buildroot to create YIO's underlaying Operating System.  
