@@ -84,6 +84,7 @@ The currently supported devices are:
 - [x] Remotes
 
 Example config.json file for IR Integration will be available later.
+
 ### openHAB
 Third SmartHome Backend System that is used to develop the YIO Sofware with (currently under initial development).  
 The currently supported devices are:
