@@ -48,3 +48,6 @@ After successful authentication the client is flagged to be able to communicate 
 
 ### Messages
 When a message arrives from a flagged client, it gets emitted via the `messageReceived` signal. You can connect to this signal from QML or C++ to further process the message.
+
+### Sending messages
+You can send messages to all authenticated clients with the `sendMessage(QString msg)` method. The message should be stringified JSON.
