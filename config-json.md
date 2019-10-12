@@ -27,7 +27,7 @@ At the Entity Section you define what devices will be available at the YIO GUI. 
 
 **area Tag:** needs to match a previously defined area (case Senitive)  
 **friendly_name Tag:** is user defined and will be used for display the name of the entity at the YIO UI.  
-**integration Tag:** used to determine the integration the interaction with this device will be forwarded to (homeassistant, homey)  
+**integration Tag:** determine the integration to what the interaction with a device gets forwarded (homeassistant, homey)  
 
 Following Code will be used to determine an Entity:
 ```
@@ -119,7 +119,7 @@ Following Code will be used to determine an **home assitant** Integration:
             "connectionOpen": true,
             "data": {
                 "ip": "XXX.XXX.XXX.XXX:8123",
-                "token": "[Long-lived access token](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token)"
+                "token": "Long-lived access token"
             },
             "friendly_name": "Home Assistant",
             "id": 1,
@@ -175,15 +175,15 @@ Following Code will be used to determine settings:
 At the UI_Config Section the complete UI will be defined. YIO will not limit you where you like your devices to be or how many pages you would like to have.  
 
 **selected_profile Tag:** here YIO will save what profile was used last, you can determine it here as well  
-**profile Tag:** generate profiles with this tag, each profile hold the * *name, pages & favorites * * tag  
+**profile Tag:** generate profiles with this tag, each profile hold the *name, pages & favorites* tag  
     **profile/name Tag:** is user defined and will be used for display the name of the profil at the YIO Profile selector  
     **profile/pages Tag:** define the order and the show of pages at the YIO UI  
     **profile/favorites Tag:** define which devices will be displayed at the favorites page for each profile  
-**pages Tag:** basically desing your displayed page here it will hold the * *name, image & group * * tag  
+**pages Tag:** basically desing your displayed page here it will hold the *name, image & group* tag  
     **pages/name Tag:** name of the page that will be displayed in the UI and in the selection menu  
     **pages/image Tag:** path to image that will be used as headergrapic (images needs to be available, else it will be blank)  
     **pages/groups Tag:** groups that will be available at the defined page (e.g. grouped lights, grouped media player or mixed)  
-**groups Tag:** will group devices under a header and will hold the * * name, switch & entities * * tag  
+**groups Tag:** will group devices under a header and will hold the *name, switch & entities* tag  
     **groups/name Tag:** user defined header that will be displayed above each group  
     **groups/switch Tag:** set **true** or **false** to enable or disable a group switch  
     **group/entities Tag:** will hold all devices that should be displayed in this group  
@@ -244,9 +244,7 @@ At the Remote Section the IR Devices wil be saved. You are able to define the IR
 **area Tag:** needs to match a previously defined area (case Senitive)  
 **entity_id Tag:** used to determine the entity id that is connected to this IR code  
 **friendly_name Tag:** is user defined and will be used for display the name of the IR device  
-**integration Tag:** used to determine the integration the interaction with this device will be forwarded to (IR, TCP/IP)  
-- [x] **IR Integration** use this when IR control will be required  
-- [ ] **TCP/IP Integration** use this when TCP/IP control will be required  
+**integration Tag:** determine the integration the interaction with this remote will be forwarded to (ir, tcp_ip)  
 **supported_features Tag:** define features that are supported from the device  
 **commands Tag:** define the command that is used to control your device  
     **commands/button_map Tag:** map software or hardware buttons to this command  
