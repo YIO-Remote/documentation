@@ -109,6 +109,8 @@ Following Integrations are actually possible:
 **ip Tag:** needs to point to your integrations server ip and port or to the hostname with port  
 **token Tag:** generate a [Home Assistant Long-lived access token](https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token) and copy it here  
 **friendly_name Tag:** user defined name will be used for display the name of the integration at the YIO UI settings page.  
+**plugin Tag:** select the plugin that is used  
+**type Tag:**  
 
 Following Code will be used to determine an **home assitant** Integration:
 ```
