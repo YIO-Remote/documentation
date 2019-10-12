@@ -3,12 +3,12 @@
 ## About config.json
 The config.json file is used by the YIOSoftware to determine the Integrations, the look and use of YIO. In this file all data is stored from YIO, so if you like to make a Backup of your data, you only need to save this File.  
 The following things can be defined in YIOs config file:
-[Areas](https://github.com/YIO-Remote/documentation/blob/master/config-json.md#areas-section)  
-[Entities](https://github.com/YIO-Remote/documentation/blob/master/config-json.md#entities-section)  
-[Integrations](https://github.com/YIO-Remote/documentation/blob/master/config-json.md#integration-section)  
-[Settings]
-[UI_Config]
-[Remote]
+- [Areas](https://github.com/YIO-Remote/documentation/blob/master/config-json.md#areas-section)  
+- [Entities](https://github.com/YIO-Remote/documentation/blob/master/config-json.md#entities-section)  
+- [Integrations](https://github.com/YIO-Remote/documentation/blob/master/config-json.md#integration-section)  
+- [Settings]
+- [UI_Config]
+- [Remote]
 
 ## Areas Section
 At the Area Section you define what Areas you would like to have available at YIOs GUI. There is no limit for area entries defined.  
