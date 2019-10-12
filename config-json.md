@@ -40,7 +40,21 @@ Following Code will be used to determine an Entitie:
                     "BRIGHTNESS","COLOR"
                 ]
             },
-             "media_player": [
+            ,
+        "blind": [
+            {
+                "area": "Living Room",
+                "entity_id": "cover.living_room_blinds_level",
+                "friendly_name": "Living room blinds",
+                "integration": "homeassistant",
+                "supported_features": [
+                    "OPEN",
+                    "CLOSE",
+                    "STOP",
+                    "POSITION"
+                ]
+            },
+         "media_player": [
             {
                 "area": "Living Room",
                 "attributes": {
