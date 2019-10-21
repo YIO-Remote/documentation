@@ -73,7 +73,7 @@ The currently supported devices are:
 - [x] Blinds
 - [ ] Heating
 - [x] Lights
-- [ ] Media players
+- [x] Media players
 - [ ] PVR / TV
 
 Example config.json file for Homey Integration will be available later.
@@ -81,7 +81,7 @@ Example config.json file for Homey Integration will be available later.
 ### Infrared (IR)
 IR Integration supporting IR code blasting via the YIO Dock.  
 The currently supported devices are:
-- [x] Remotes
+- [x] PVR / TV
 
 Example config.json file for IR Integration will be available later.
 
@@ -107,8 +107,11 @@ Later you will find Information how to upload the Software to your YIO Remote he
 ## Web Configuration
 YIO will provide you a self hosted, locally available website where you are able to change the configuration of your Setup.  
 Following features are currently planned:
-- [ ] **Display config.json** - View your actual used config.json file
-- [ ] **Download config.json** - make an easy backup of the complete remote config
-- [ ] **Modify config.json** - Easy edit of the file from every browser in local Network
-- [ ] **Setup Wizard** - Answere short Questions and build the config.json file with the help of our wizard
-- [ ] **Upload config.json** - restore you remote to this config
+- [x] **Display config.json** - View your actual used config.json file
+- [x] **Download config.json** - make an easy backup of the complete remote config
+- [x] **Modify config.json** - Easy edit of the file from every browser in local Network
+- [x] **Profile management** - Add Profiles, and assign Pages consisting of groups of devices
+- [x] **Upload config.json** - restore you remote to this config
+- [ ] **Infrared remote tool** - Building IR remotes through the configurator
+- [ ] **Adding new integrations** - Ading your favorite integrations and their required settings.
+- [ ] **Adding custom entities** - Every device is a entity in the YIO configuration, They describe the device features and link to a integrations.
