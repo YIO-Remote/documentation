@@ -2,7 +2,7 @@
 
 ## YIO Wiki Menu
 
-[Home](home)  
+[Home](/wiki/home)  
 [Remote](info-remote)  
 [Dock](info-Dock)  
 [FAQ](FAQ)
