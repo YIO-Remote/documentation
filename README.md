@@ -3,9 +3,9 @@
 ## YIO Wiki Menu
 
 [Home](../../wiki/home)  
-[Remote](info-remote)  
-[Dock](info-Dock)  
-[FAQ](FAQ)
+[Remote](../../wiki/info-remote)  
+[Dock](../../wiki/info-Dock)  
+[FAQ](../../wiki/FAQ)
 
 ## YIO Social
 [YIO Homepage](https://yio-remote.com)                
@@ -20,40 +20,40 @@
 
 
 ## Getting started
-[Assembly Guide](gettingstarted-assembly_guide)               
-[Initial Setup](gettingstarted-initial_setup)
+[Assembly Guide](../../wiki/gettingstarted-assembly_guide)               
+[Initial Setup](../../wiki/gettingstarted-initial_setup)
 
 
 ## Configuration
-[Web Interface](configuration-webInterface)  
+[Web Interface](../../wiki/configuration-webInterface)  
 
 
 ## Hardware
-[Dock](hardware-dock)  
-[Remote](hardware-remote)  
+[Dock](../../wiki/hardware-dock)  
+[Remote](../../wiki/hardware-remote)  
 Supported IR Extenders  
 
 
 ## Integrations
-[Domoticz](integration-domoticz)  
-[Home Assistant](integration-homeAssistant)  
-[Homey](integration-homey)  
-[openHAB](integration-openHAB)  
-[Roon](integration-roon)  
-[Spotify](integration-spotify)  
-[YIO Dock](integration-YIOdock)  
+[Domoticz](../../wiki/integration-domoticz)  
+[Home Assistant](../../wiki/integration-homeAssistant)  
+[Homey](../../wiki/integration-homey)  
+[openHAB](../../wiki/integration-openHAB)  
+[Roon](../../wiki/integration-roon)  
+[Spotify](../../wiki/integration-spotify)  
+[YIO Dock](../../wiki/integration-YIOdock)  
 
 
 ## Developers
 **Build Environment**                 
-[Setup Qt IDE](developer-qt_ide)                 
-[Setup PlatformIO IDE](developer-platformio_ide)                 
-[Setup build root](developer-build_root)                 
+[Setup Qt IDE](../../wiki/developer-qt_ide)                 
+[Setup PlatformIO IDE](../../wiki/developer-platformio_ide)                 
+[Setup build root](../../wiki/developer-build_root)                 
 **API**                 
-[API](developer-API)                 
+[API](../../wiki/developer-API)                 
 **Generic**                 
 Architecture                   
 Coding Style                   
-[Configuration File](developer-config-json)                   
-[Entity Types](developer-entity-types)                   
+[Configuration File](../../wiki/developer-config-json)                   
+[Entity Types](../../wiki/developer-entity-types)                   
 Pull Requests                  
