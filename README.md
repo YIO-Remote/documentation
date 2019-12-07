@@ -52,13 +52,13 @@ Supported IR Extenders
 Setup PlatformIO IDE  
 [Setup build root](../../wiki/developer-build_root)  
 **API**  
-[API](developer-API)  
-[Dock API](developer-API#yio-remote-api)  
-[Remote API](developer-API#yio-remote-api)  
+[API](../../wiki/developer-API)  
+[Dock API](../../wiki/developer-API#yio-remote-api)  
+[Remote API](../../wiki/developer-API#yio-remote-api)  
 **Generic**  
-[Architecture](developer-architecture)  
+[Architecture](../../wiki/developer-architecture)  
 Coding Style  
 [Configuration File](../../wiki/developer-config-json)  
 [Entity Types](../../wiki/developer-entity-types)  
-[Logging](Logging)  
+[Logging](../../wiki/Logging)  
 Pull Requests  
