@@ -50,7 +50,7 @@ Supported IR Extenders
 [Setup Qt IDE](../../wiki/developer-qt_ide)  
 [Developer VM](../../wiki/developer-vm)  
 Setup PlatformIO IDE  
-[Setup build root](../../wiki/developer-build_root)  
+[Setup build root](../../wiki/developer-buildroot)  
 **API**  
 [API](../../wiki/developer-API)  
 [Dock API](../../wiki/developer-API#yio-remote-api)  
