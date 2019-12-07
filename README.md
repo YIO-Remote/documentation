@@ -48,7 +48,7 @@ Supported IR Extenders
 
 **Build Environment**  
 [Setup Qt IDE](../../wiki/developer-qt_ide)  
-[Developer VM](developer-vm)  
+[Developer VM](../../wiki/developer-vm)  
 Setup PlatformIO IDE  
 [Setup build root](../../wiki/developer-build_root)  
 **API**  
