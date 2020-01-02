@@ -57,7 +57,7 @@ Setup PlatformIO IDE
 [Remote API](../../wiki/developer-API#yio-remote-api)  
 **Generic**  
 [Architecture](../../wiki/developer-architecture)  
-[Coding Guidelines](Coding-Guidelines)  
+[Coding Guidelines](../../wiki/Coding-Guidelines)  
 [Configuration File](../../wiki/developer-config-json)  
 [Entity Types](../../wiki/developer-entity-types)  
 [Logging](../../wiki/Logging)  
