@@ -46,19 +46,28 @@ Supported IR Extenders
 
 ## Developers
 
-**Build Environment**  
+### Build Environment
 [Setup Qt IDE](../../wiki/developer-qt_ide)  
 [Developer VM](../../wiki/developer-vm)  
 Setup PlatformIO IDE  
 [Setup build root](../../wiki/developer-buildroot)  
-**API**  
+
+### API
+
 [API](../../wiki/developer-API)  
 [Dock API](../../wiki/developer-API#yio-remote-api)  
 [Remote API](../../wiki/developer-API#yio-remote-api)  
-**Generic**  
+
+### Generic
+
 [Architecture](../../wiki/developer-architecture)  
 [Coding Guidelines](../../wiki/Coding-Guidelines)  
 [Configuration File](../../wiki/developer-config-json)  
 [Entity Types](../../wiki/developer-entity-types)  
 [Logging](../../wiki/Logging)  
+
+### Workflow
+
+Git Workflow  
 Pull Requests  
+[Continuous Integration](../../wiki/Continuous-Integration)  
