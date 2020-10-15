@@ -6,7 +6,7 @@
 [Remote](../../wiki/info-remote)  
 [Dock](../../wiki/info-Dock)  
 [FAQ](../../wiki/FAQ)  
-[Remote Firnware](https://github.com/YIO-Remote/remote-os/releases)  
+[Remote Firmware](https://github.com/YIO-Remote/remote-os/releases)  
 [Dock Firmware](https://github.com/YIO-Remote/dock-software/releases)  
 
 ## YIO Social
