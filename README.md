@@ -4,7 +4,7 @@
 
 [Home](../../wiki/home)  
 [Remote](../../wiki/info-remote)  
-[Dock](../../wiki/info-Dock)  
+[Dock](../../wiki/hardware-dock)  
 [FAQ](../../wiki/FAQ)  
 [Remote Firmware](https://github.com/YIO-Remote/remote-os/releases)  
 [Dock Firmware](https://github.com/YIO-Remote/dock-software/releases)  
