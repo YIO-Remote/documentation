@@ -1,0 +1,57 @@
+# Meta Data for SEO
+
+## Homepage
+title = "YIO"
+titleSeparator = "-"
+titleAddition = "Documentation"
+description = "YIO Remote is an open-source, Raspberry Pi Zero W based, high quality DIY touchscreen remote."
+
+## Open Graph + Twitter Cards
+images = ["yio-logo.png"]
+twitterSite = "yioremote"
+twitterCreator = "yioremote"
+facebookAuthor = "YIOremote"
+facebookPublisher = "YIOremote"
+ogLocale = "en_US"
+
+## JSON-LD
+schemaType = "Organization"
+schemaLogo = "yio-logo.png"
+schemaTwitter = "https://twitter.com/yioremote"
+schemaGitHub = "https://github.com/YIO-remote"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+
+# Footer
+footer = "Documentation by the YIO community - Website powered by <a href=\"https://gohugo.io/\">Hugo</a> and <a href=\"https://getdoks.org/\">Doks</a> theme"
+
+# Alert
+alert = false
+alertText = ""
+
+# Edit Page
+docsRepo = "https://github.com/YIO-Remote/documentation"
+editPage = true
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = true
+  darkMode = true
+  bootStrapJs = false
+  breadCrumb = false
+  highLight = true
+  kaTex = false
