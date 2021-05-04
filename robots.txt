@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yio-remote.github.io/documentation/sitemap.xml

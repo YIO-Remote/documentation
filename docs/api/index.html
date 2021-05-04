@@ -1,0 +1,698 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel=preload as=font href=https://yio-remote.github.io/documentation/fonts/vendor/jost/jost-v4-latin-regular.woff2 type=font/woff2 crossorigin><link rel=preload as=font href=https://yio-remote.github.io/documentation/fonts/vendor/jost/jost-v4-latin-700.woff2 type=font/woff2 crossorigin><link rel=stylesheet href=https://yio-remote.github.io/documentation/main.41f4e12d8577edbe348004973f8e5cd53ce413089a172e94c7d26aaa149801a054e147cca2aee89b3d327351ac23a4cf9bd74a3d19235ac438c7a63314cd7c9e.css integrity="sha512-QfThLYV37b40gASXP45c1TzkEwiaFy6Ux9JqqhSYAaBU4UfMoq7omz0yc1GsI6TPm9dKPRkjWsQ4x6YzFM18ng==" crossorigin=anonymous><noscript><style>img.lazyload{display:none}</style></noscript><meta name=robots content="index, follow"><meta name=googlebot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><meta name=bingbot content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"><title>Remote API - YIO</title><meta name=description content="There's a websocket based API for communicating with the remote, running on port 946(YIO). Mainly used by the web configurator tool and the YIO Dock."><link rel=canonical href=https://yio-remote.github.io/documentation/docs/api/><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="/docs/api/yio-logo.png"><meta name=twitter:title content="Remote API"><meta name=twitter:description content="There's a websocket based API for communicating with the remote, running on port 946(YIO). Mainly used by the web configurator tool and the YIO Dock."><meta name=twitter:site content="@yioremote"><meta name=twitter:creator content="@yioremote"><meta property="og:title" content="Remote API"><meta property="og:description" content="There's a websocket based API for communicating with the remote, running on port 946(YIO). Mainly used by the web configurator tool and the YIO Dock."><meta property="og:type" content="article"><meta property="og:url" content="/docs/api/"><meta property="og:image" content="/docs/api/yio-logo.png"><meta property="og:site_name" content="YIO"><meta property="article:publisher" content="https://www.facebook.com/YIOremote"><meta property="article:author" content="https://www.facebook.com/YIOremote"><meta property="og:locale" content="en_US"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/yio-remote.github.io\/documentation\/"},{"@type":"ListItem","position":3,"name":"Docs","item":"https:\/\/yio-remote.github.io\/documentation\/\/docs\/"},{"@type":"ListItem","position":4,"name":"API","item":"https:\/\/yio-remote.github.io\/documentation\/\/docs\/api\/"}]}</script><meta name=theme-color content="#fff"><link rel=apple-touch-icon sizes=180x180 href=https://yio-remote.github.io/documentation/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://yio-remote.github.io/documentation/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://yio-remote.github.io/documentation/favicon-16x16.png><link rel=manifest href=https://yio-remote.github.io/documentation/site.webmanifest></head><body class="docs single"><script>(localStorage.getItem('theme')==='dark'||localStorage.getItem('theme')===null)&&document.body.classList.add('dark')</script><div class="header-bar fixed-top"></div><header class="navbar fixed-top navbar-expand-md navbar-light"><div class=container><input class="menu-btn order-0" type=checkbox id=menu-btn>
+<label class="menu-icon d-md-none" for=menu-btn><span class=navicon></span></label><a class="navbar-brand order-1 order-md-0 me-auto" href=https://yio-remote.github.io/documentation/>YIO</a>
+<button id=mode class="btn btn-link order-2 order-md-4" type=button aria-label="Toggle mode">
+<span class=toggle-dark><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span><span class=toggle-light><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span></button><ul class="navbar-nav social-nav order-3 order-md-5"><li class=nav-item><a class=nav-link href=https://github.com/YIO-remote><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg><span class="ms-2 visually-hidden">GitHub</span></a></li><li class=nav-item><a class=nav-link href=http://chat.yio-remote.com/><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentcolor"><path d="M20.222.0c1.406.0 2.54 1.137 2.607 2.475V24l-2.677-2.273-1.47-1.338-1.604-1.398.67 2.205H3.71c-1.402.0-2.54-1.065-2.54-2.476V2.48C1.17 1.142 2.31.003 3.715.003h16.5L20.222.0zm-6.118 5.683h-.03l-.202.2c2.073.6 3.076 1.537 3.076 1.537-1.336-.668-2.54-1.002-3.744-1.137-.87-.135-1.74-.064-2.475.0h-.2c-.47.0-1.47.2-2.81.735-.467.203-.735.336-.735.336s1.002-1.002 3.21-1.537l-.135-.135s-1.672-.064-3.477 1.27c0 0-1.805 3.144-1.805 7.02.0.0 1 1.74 3.743 1.806.0.0.4-.533.805-1.002-1.54-.468-2.14-1.404-2.14-1.404s.134.066.335.2h.06c.03.0.044.015.06.03v.006c.016.016.03.03.06.03.33.136.66.27.93.4.466.202 1.065.403 1.8.536.93.135 1.996.2 3.21.0.6-.135 1.2-.267 1.8-.535.39-.2.87-.4 1.397-.737.0.0-.6.936-2.205 1.404.33.466.795 1 .795 1 2.744-.06 3.81-1.8 3.87-1.726.0-3.87-1.815-7.02-1.815-7.02-1.635-1.214-3.165-1.26-3.435-1.26l.056-.02zm.168 4.413c.703.0 1.27.6 1.27 1.335.0.74-.57 1.34-1.27 1.34s-1.27-.6-1.27-1.334c.002-.74.573-1.338 1.27-1.338zm-4.543.0c.7.0 1.266.6 1.266 1.335.0.74-.57 1.34-1.27 1.34s-1.27-.6-1.27-1.334c0-.74.57-1.338 1.27-1.338z"/></svg><span class="ms-2 visually-hidden">Discord</span></a></li><li class=nav-item><a class=nav-link href=https://community.yio-remote.com/><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="ms-2 visually-hidden">Forum</span></a></li></ul><div class="collapse navbar-collapse order-4 order-md-1"><ul class="navbar-nav main-nav me-auto order-5 order-md-2"><li class="nav-item active"><a class=nav-link href=https://yio-remote.github.io/documentation/>Docs</a></li><li class=nav-item><a class=nav-link href=https://yio-remote.github.io/documentation/developers/api>Developers</a></li><li class=nav-item><a class=nav-link href=https://yio-remote.github.io/documentation/community>Community</a></li><li class=nav-item><a class=nav-link href=https://yio-remote.github.io/documentation/contribute>Contribute</a></li></ul><div class="break order-6 d-md-none"></div><form class="navbar-form flex-grow-1 order-7 order-md-3"><input id=userinput class="form-control is-search" type=search placeholder="Search docs..." aria-label="Search docs..." autocomplete=off><div id=suggestions class="shadow bg-white rounded"></div></form></div></div></header><div class="wrap container" role=document><div class=content><div class="row flex-xl-nowrap"><div class="col-lg-5 col-xl-4 docs-sidebar"><nav class=docs-links aria-label="Main navigation"><h3>Home</h3><ul class=list-unstyled><li><a class=docs-link href=https://yio-remote.github.io/documentation/>YIO Remote</a></li><li><a class="docs-link active" href=https://yio-remote.github.io/documentation/docs/api/>Remote API</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/faq/>Frequently Asked Questions</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/supporters/>Supporters</a></li></ul><h3>Configuration</h3><ul class=list-unstyled><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/configuration/web-interface/>Web Interface</a></li></ul><h3>Hardware</h3><ul class=list-unstyled><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/hardware/dock/>Dock</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/hardware/remote/>Remote</a></li></ul><h3>Integrations</h3><ul class=list-unstyled><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/integrations/home-assistant/>Home Assistant</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/integrations/homey/>Homey</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/integrations/openhab/>OpenHAB</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/integrations/roon/>Roon</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/integrations/spotify/>Spotify</a></li><li><a class=docs-link href=https://yio-remote.github.io/documentation/docs/integrations/yio-dock/>YIO Dock</a></li></ul></nav></div><nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation"><div class=page-links><h3>On this page</h3><nav id=TableOfContents><ul><li><a href=#remote>Remote</a><ul><li><a href=#authentication>Authentication</a></li><li><a href=#commands>Commands</a></li></ul></li><li><a href=#system>System</a><ul><li><a href=#reboot-remote>Reboot remote</a></li><li><a href=#shutdown-remote>Shutdown remote</a></li></ul></li><li><a href=#configuration>Configuration</a><ul><li><a href=#get-configuration-the-whole-configuration>Get configuration (the whole configuration)</a></li><li><a href=#set-configuration-the-whole-configuration>Set configuration (the whole configuration)</a></li></ul></li><li><a href=#integrations>Integrations</a><ul><li><a href=#discover-integrations-on-the-network>Discover integrations on the network</a></li><li><a href=#discover-one-specific-integration-on-the-network>Discover one specific integration on the network</a></li><li><a href=#get-supported-integrations-list-of-supported-integrations>Get supported integrations (list of supported integrations)</a></li><li><a href=#get-loaded-integrations-json-of-loaded-integrations>Get loaded integrations (json of loaded integrations)</a></li><li><a href=#get-data-required-to-set-up-an-integration>Get data required to set up an integration</a></li><li><a href=#add-integration>Add integration</a></li><li><a href=#remove-integration>Remove integration</a></li></ul></li><li><a href=#entities>Entities</a><ul><li><a href=#get-supported-entities-list-of-supported-entities>Get supported entities (list of supported entities)</a></li><li><a href=#get-loaded-entities-json-of-loaded-entities>Get loaded entities (json of loaded entities)</a></li><li><a href=#add-entity>Add entity</a></li><li><a href=#remove-entity>Remove entity</a></li></ul></li><li><a href=#profiles>Profiles</a><ul><li><a href=#get-all-profiles-json-of-all-profiles>Get all profiles (json of all profiles)</a></li><li><a href=#set-profile>Set profile</a></li><li><a href=#add-new-profile>Add new profile</a></li><li><a href=#update-profile>Update profile</a></li><li><a href=#remove-profile>Remove profile</a></li></ul></li><li><a href=#pages>Pages</a><ul><li><a href=#get-all-pages-json-of-all-pages>Get all pages (json of all pages)</a></li><li><a href=#add-new-page>Add new page</a></li><li><a href=#update-page>Update page</a></li><li><a href=#remove-page>Remove page</a></li></ul></li><li><a href=#groups>Groups</a><ul><li><a href=#get-all-groups-json-of-all-groups>Get all groups (json of all groups)</a></li><li><a href=#add-new-group>Add new group</a></li><li><a href=#update-group>Update group</a></li><li><a href=#remove-group>Remove group</a></li></ul></li><li><a href=#settings>Settings</a><ul><li><a href=#get-language-list-list-of-all-languages>Get language list (list of all languages)</a></li><li><a href=#set-language>Set language</a></li><li><a href=#set-auto-brightness>Set auto brightness</a></li><li><a href=#set-dark-mode>Set dark mode</a></li></ul></li></ul></nav></div></nav><main class="docs-content col-lg-11 col-xl-9 mx-xl-auto"><h1>Remote API</h1><p class=lead></p><p>There&rsquo;s a websocket based API for communicating with the remote, running on port 946(YIO). Mainly used by the web configurator tool and the YIO Dock.</p><p>The API automatically starts on power up and is always running in the background. The API is stopped, before wifi is turned off and started, after wifi is turned on.<br>Messages are sent in JSON format.</p><h2 id=remote>Remote<a href=#remote class=anchor aria-hidden=true>#</a></h2><h3 id=authentication>Authentication<a href=#authentication class=anchor aria-hidden=true>#</a></h3><p>When a client connects, the remote sends a JSON message:</p><pre><code>{
+    &quot;type&quot;: &quot;auth_required&quot;
+}
+</code></pre><p>The client needs to respond with:</p><pre><code>{
+    &quot;type&quot;: &quot;auth&quot;,
+    &quot;token&quot;: &lt;token&gt;
+}
+</code></pre><p>If you don&rsquo;t provide a token or the token is invalid, you get an error message and the connection is terminated:</p><pre><code>{
+    &quot;type&quot;: &quot;auth&quot;,
+    &quot;message&quot;: &quot;Invalid token&quot;
+}
+</code></pre><p>or</p><pre><code>{
+    &quot;type&quot;: &quot;auth&quot;,
+    &quot;message&quot;: &quot;Token needed&quot;
+}
+</code></pre><p>After successful authentication the client is flagged to be able to communicate with the API, until the client is disconnected. Client needs to authenticate after reconnecting.</p><h3 id=commands>Commands<a href=#commands class=anchor aria-hidden=true>#</a></h3><p>Commands are sent to the API as JSON. Not all commands have a response. Commands either return true or false and the payload if there&rsquo;s any.</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;message&quot;: &quot;Optional message for the error.&quot;
+}
+</code></pre><p>Some commands return a message as part of the failed execution of the command to explain the error.</p><h2 id=system>System<a href=#system class=anchor aria-hidden=true>#</a></h2><h3 id=reboot-remote>Reboot remote<a href=#reboot-remote class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;type&quot;: &quot;reboot&quot;
+}
+</code></pre><p>No response. The connection will be disconnected when the remote reboots.</p><h3 id=shutdown-remote>Shutdown remote<a href=#shutdown-remote class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;type&quot;: &quot;shutdown&quot;
+}
+</code></pre><p>No response. The connection will be disconnected when the remote shuts down.</p><h2 id=configuration>Configuration<a href=#configuration class=anchor aria-hidden=true>#</a></h2><h3 id=get-configuration-the-whole-configuration>Get configuration (the whole configuration)<a href=#get-configuration-the-whole-configuration class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 1,
+    &quot;type&quot;: &quot;get_config&quot;
+}
+</code></pre><p>Response:</p><pre><code>{
+    &quot;id&quot;: 1,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;config&quot;: &lt;config&gt;
+}
+</code></pre><p>The whole config as json.</p><h3 id=set-configuration-the-whole-configuration>Set configuration (the whole configuration)<a href=#set-configuration-the-whole-configuration class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 18,
+    &quot;type&quot;: &quot;set_config&quot;,
+    &quot;config&quot;: &lt;config&gt;
+}
+</code></pre><p>The whole config as json.</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 18,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 18,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;,
+}
+</code></pre><p>Setting a new config will reload the UI, but won&rsquo;t add entities or integrations to the memory databases. A reboot is needed after uploading a whole new configuration.</p><h2 id=integrations>Integrations<a href=#integrations class=anchor aria-hidden=true>#</a></h2><h3 id=discover-integrations-on-the-network>Discover integrations on the network<a href=#discover-integrations-on-the-network class=anchor aria-hidden=true>#</a></h3><p>Scans for all supported integrations.</p><h3 id=discover-one-specific-integration-on-the-network>Discover one specific integration on the network<a href=#discover-one-specific-integration-on-the-network class=anchor aria-hidden=true>#</a></h3><p>Scans for one specific integration.</p><h3 id=get-supported-integrations-list-of-supported-integrations>Get supported integrations (list of supported integrations)<a href=#get-supported-integrations-list-of-supported-integrations class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_supported_integrations&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;supported_integrations&quot;: [
+        &quot;homeassistant&quot;,
+        &quot;homey&quot;,
+        &quot;spotify&quot;
+    ]
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=get-loaded-integrations-json-of-loaded-integrations>Get loaded integrations (json of loaded integrations)<a href=#get-loaded-integrations-json-of-loaded-integrations class=anchor aria-hidden=true>#</a></h3><p>Returns the integrations loaded by the remote from the configuration.</p><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_loaded_integrations&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;loaded_integrations&quot;: {
+        &quot;homeassistant&quot;: {
+            &quot;data&quot;: [
+                {
+                    &quot;data&quot;: {
+                        &quot;ip&quot;: &quot;192.168.0.10:8123&quot;,
+                        &quot;token&quot;: &quot;eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9&quot;
+                    },
+                    &quot;friendly_name&quot;: &quot;Home Assistant&quot;,
+                    &quot;id&quot;: &quot;homeassistant&quot;
+                }
+            ],
+            &quot;mdns&quot;: &quot;_hap._tcp&quot;
+        },
+        &quot;spotify&quot;: {
+            &quot;data&quot;: [
+                {
+                    &quot;data&quot;: {
+                        &quot;access_token&quot;: &quot;lCzbkuM8wGgCo0FiE&quot;,
+                        &quot;client_id&quot;: &quot;dklfj4897r8912up48fjoi398puo&quot;,
+                        &quot;client_secret&quot;: &quot;fdajh42907t49128ufioprwh&quot;,
+                        &quot;entity_id&quot;: &quot;spotify.spotify&quot;,
+                        &quot;refresh_token&quot;: &quot;zXQktUpnJoyGY&quot;
+                    },
+                    &quot;friendly_name&quot;: &quot;Spotify&quot;,
+                    &quot;id&quot;: &quot;spotify&quot;
+                }
+            ],
+            &quot;mdns&quot;: &quot;_spotify-connect._tcp&quot;
+        }
+    }
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=get-data-required-to-set-up-an-integration>Get data required to set up an integration<a href=#get-data-required-to-set-up-an-integration class=anchor aria-hidden=true>#</a></h3><p>Returns the data required to set up an integration.</p><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_integration_setup_data&quot;,
+    &quot;integration: &quot;homeassistant&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;data&quot;: {
+        &quot;ip&quot;: &quot;&quot;,
+        &quot;token&quot;, &quot;&quot;
+    }
+}
+</code></pre><p>Returns a json with all required data fields for the integration. If no data is required, returns and empty object.</p><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=add-integration>Add integration<a href=#add-integration class=anchor aria-hidden=true>#</a></h3><p>Add a new integration to the config file and load it to the memory database</p><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;add_integration&quot;,
+    &quot;config&quot;: {
+        &quot;type&quot;: &quot;homeassistant&quot;,
+        &quot;id&quot;: &quot;homeassistant_pro&quot;,
+        &quot;friendly_name&quot;: &quot;My Home Assistant Server&quot;,
+        &quot;data&quot;: {
+            &quot;ip&quot;: &quot;192.168.0.2&quot;,
+            &quot;token&quot;: &quot;832748hfjkdfu21ytr79218ohfi2&quot;
+        }
+    }
+}
+</code></pre><p><code>type</code> is the type of integration from supported integrations.
+<code>id</code> a unique id
+<code>friendly_name</code> how the integration should show up on the UI
+<code>data</code> required data fields to configure the integration</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=remove-integration>Remove integration<a href=#remove-integration class=anchor aria-hidden=true>#</a></h3><p>Remove an integration from the config file and the memory database</p><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;remove_integration&quot;,
+    &quot;integration_id&quot;: &quot;homeassistant_pro&quot;
+}
+</code></pre><p><code>integration_id</code> is the unique id of the integration</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Adding and removing an integration will be reflected in the UI. (In Settings/Integrations)</p><h2 id=entities>Entities<a href=#entities class=anchor aria-hidden=true>#</a></h2><h3 id=get-supported-entities-list-of-supported-entities>Get supported entities (list of supported entities)<a href=#get-supported-entities-list-of-supported-entities class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_supported_entities&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;supported_entities&quot;: [
+        &quot;light&quot;,
+        &quot;blind&quot;,
+        &quot;media_player&quot;,
+        &quot;climate&quot;
+    ]
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=get-loaded-entities-json-of-loaded-entities>Get loaded entities (json of loaded entities)<a href=#get-loaded-entities-json-of-loaded-entities class=anchor aria-hidden=true>#</a></h3><p>Returns the entities loaded by the remote from the configuration.</p><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_loaded_entities&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;loaded_entities&quot;: {
+        &quot;blind&quot;: [
+            {
+                &quot;area&quot;: &quot;Living room&quot;,
+                &quot;entity_id&quot;: &quot;cover.living_room_blinds_level&quot;,
+                &quot;friendly_name&quot;: &quot;Living room blinds&quot;,
+                &quot;integration&quot;: &quot;homeassistant&quot;,
+                &quot;supported_features&quot;: [
+                    &quot;OPEN&quot;,
+                    &quot;CLOSE&quot;,
+                    &quot;STOP&quot;,
+                    &quot;POSITION&quot;
+                ]
+            }
+        ],
+        &quot;light&quot;: [
+            {
+            &quot;area&quot;: &quot;Entrance&quot;,
+                &quot;entity_id&quot;: &quot;light.entrance_lamp_level&quot;,
+                &quot;friendly_name&quot;: &quot;Entrance lamp&quot;,
+                &quot;integration&quot;: &quot;homeassistant&quot;,
+                &quot;supported_features&quot;: [
+                    &quot;BRIGHTNESS&quot;
+                ]
+            },
+            {
+                &quot;area&quot;: &quot;Kitchen&quot;,
+                &quot;entity_id&quot;: &quot;light.kitchen_dimmer_level&quot;,
+                &quot;friendly_name&quot;: &quot;Kitchen lamp&quot;,
+                &quot;integration&quot;: &quot;homeassistant&quot;,
+                &quot;supported_features&quot;: [
+                    &quot;BRIGHTNESS&quot;,
+                    &quot;COLOR&quot;
+                ]
+            }
+        ]
+    }
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=add-entity>Add entity<a href=#add-entity class=anchor aria-hidden=true>#</a></h3><p>Add a new entity to the config file and load it to the memory database</p><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;add_entity&quot;,
+    &quot;config&quot;: {
+        &quot;type&quot;: &quot;light&quot;,
+        &quot;entity_id&quot;: &quot;light.entrance_lamp_level&quot;,
+        &quot;friendly_name&quot;: &quot;Entrance lamp&quot;,
+        &quot;integration&quot;: &quot;homeassistant&quot;,
+        &quot;supported_features&quot;: [
+                &quot;BRIGHTNESS&quot;,
+                &quot;COLOR&quot;
+        ]
+    }
+}
+</code></pre><p><code>type</code> is the type of entity
+<code>entity_id</code> a unique id
+<code>friendly_name</code> how the entity should show up on the UI
+<code>integration</code> the integration that handles the entity
+<code>supported_features</code> what features the entity has. This information usually comes from the integration. Leave blank if not known.</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=remove-entity>Remove entity<a href=#remove-entity class=anchor aria-hidden=true>#</a></h3><p>Remove an entity from the config file and the memory database</p><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;remove_entity&quot;,
+    &quot;entity_id&quot;: &quot;light.entrance_lamp_level&quot;
+}
+</code></pre><p><code>entity_id</code> is the unique id of the entity</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Adding or removing an entity has no effect on the UI. The user needs to add it to the UI via profiles.</p><h2 id=profiles>Profiles<a href=#profiles class=anchor aria-hidden=true>#</a></h2><h3 id=get-all-profiles-json-of-all-profiles>Get all profiles (json of all profiles)<a href=#get-all-profiles-json-of-all-profiles class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_all_profiles&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;profiles&quot;: {
+        &quot;0&quot;: {
+            &quot;favorites&quot;: [
+                &quot;spotify.spotify&quot;,
+                &quot;light.living_room_lamp_level&quot;,
+                &quot;light.living_room_corner_lamp_level&quot;,
+                &quot;light.kitchen_dimmer_level&quot;,
+                &quot;light.kitchen_table_lamp_level&quot;,
+                &quot;light.desk_lamp&quot;
+            ],
+            &quot;name&quot;: &quot;Marton&quot;,
+            &quot;pages&quot;: [
+                &quot;favorites&quot;,
+                &quot;5&quot;,
+                &quot;1&quot;,
+                &quot;0&quot;,
+                &quot;6&quot;,
+                &quot;settings&quot;
+            ]
+        },
+        &quot;1&quot;: {
+            &quot;favorites&quot;: [
+                &quot;media_player.beoplay_m5&quot;
+            ],
+            &quot;name&quot;: &quot;Niels&quot;,
+            &quot;pages&quot;: [
+                &quot;favorites&quot;,
+                &quot;5&quot;,
+                &quot;6&quot;
+            ]
+        }
+    }
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=set-profile>Set profile<a href=#set-profile class=anchor aria-hidden=true>#</a></h3><p>Activates the profile</p><p>Command:
+{
+&ldquo;id&rdquo;: 22,
+&ldquo;type&rdquo;: &ldquo;set_profile&rdquo;,
+&ldquo;profile&rdquo;: &ldquo;0&rdquo;
+}</p><p><code>profile</code> is the unique id of the profile</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=add-new-profile>Add new profile<a href=#add-new-profile class=anchor aria-hidden=true>#</a></h3><p>Create new profile and add it to the config.
+Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;add_profile&quot;,
+    &quot;profile&quot;: {
+        &quot;&lt;uuid&gt;&quot;: {
+            &quot;favorites&quot;: [
+                &quot;media_player.beoplay_m5&quot;
+            ],
+            &quot;name&quot;: &quot;Niels&quot;,
+            &quot;pages&quot;: [
+                &quot;favorites&quot;,
+                &quot;5&quot;,
+                &quot;6&quot;
+            ]
+        }
+    }
+}
+</code></pre><p><code>uuid</code> is the unique id of the profile
+<code>favorites</code> if no favorites, leave empty array
+<code>name</code> name of the profile
+<code>pages</code> if no pages, leave empty array</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=update-profile>Update profile<a href=#update-profile class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;update_profile&quot;,
+    &quot;&lt;uuid&gt;&quot;: {
+            &quot;favorites&quot;: [
+                &quot;media_player.beoplay_m5&quot;
+            ],
+            &quot;name&quot;: &quot;Niels&quot;,
+            &quot;pages&quot;: [
+                &quot;favorites&quot;,
+                &quot;5&quot;,
+                &quot;6&quot;
+            ]
+    }
+}
+</code></pre><p><code>uuid</code> is the unique id of the profile
+<code>favorites</code> if no favorites, leave empty array
+<code>name</code> name of the profile
+<code>pages</code> if no pages, leave empty array</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=remove-profile>Remove profile<a href=#remove-profile class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;remove_profile&quot;,
+    &quot;id&quot;: 28491
+}
+</code></pre><p><code>id</code> is the unique id of the profile</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h2 id=pages>Pages<a href=#pages class=anchor aria-hidden=true>#</a></h2><h3 id=get-all-pages-json-of-all-pages>Get all pages (json of all pages)<a href=#get-all-pages-json-of-all-pages class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_all_pages&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;pages&quot;: {
+        &quot;0&quot;: {
+            &quot;groups&quot;: [
+                &quot;ac9aa887-8d76-440d-b6fa-74ac2cbe8aed&quot;,
+                &quot;ac9aa887-8d76-440d-b6fa-74ac2cbe9aed&quot;
+            ],
+            &quot;image&quot;: &quot;/boot/livingroom.jpg&quot;,
+            &quot;name&quot;: &quot;Living room&quot;
+        },
+        &quot;1&quot;: {
+            &quot;groups&quot;: [
+                &quot;ac9aa887-8d66-440d-b6fa-74ac2cbe9aed&quot;
+            ],
+            &quot;image&quot;: &quot;/boot/kitchen.jpg&quot;,
+            &quot;name&quot;: &quot;Kitchen&quot;
+        }
+    }
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=add-new-page>Add new page<a href=#add-new-page class=anchor aria-hidden=true>#</a></h3><p>Create new page and add it to the config.
+Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;add_page&quot;,
+    &quot;page&quot;: {
+        &quot;&lt;uuid&gt;&quot;: {
+            &quot;groups&quot;: [
+                &quot;ac9aa887-8d76-440d-b6fa-74ac2cbe8aed&quot;,
+                &quot;ac9aa887-8d76-440d-b6fa-74ac2cbe9aed&quot;
+            ],
+            &quot;image&quot;: &quot;/boot/livingroom.jpg&quot;,
+            &quot;name&quot;: &quot;Living room&quot;
+        }
+    }
+}
+</code></pre><p><code>uuid</code> is the unique id of the page
+<code>groups</code> the groups the page contains
+<code>name</code> name of the page
+<code>image</code> header image of the page</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=update-page>Update page<a href=#update-page class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;update_page&quot;,
+    &quot;&lt;uuid&gt;&quot;: {
+            &quot;groups&quot;: [
+                &quot;ac9aa887-8d76-440d-b6fa-74ac2cbe8aed&quot;,
+                &quot;ac9aa887-8d76-440d-b6fa-74ac2cbe9aed&quot;
+            ],
+            &quot;image&quot;: &quot;/boot/livingroom.jpg&quot;,
+            &quot;name&quot;: &quot;Living room&quot;
+    }
+}
+</code></pre><p><code>uuid</code> is the unique id of the page
+<code>groups</code> the groups the page contains
+<code>name</code> name of the page
+<code>image</code> header image of the page</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=remove-page>Remove page<a href=#remove-page class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;remove_page&quot;,
+    &quot;id&quot;: &quot;ac9aa887-8d66-440d-b6fa-74ac2cbe9a2d&quot;
+}
+</code></pre><p><code>id</code> is the unique id of the page</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h2 id=groups>Groups<a href=#groups class=anchor aria-hidden=true>#</a></h2><h3 id=get-all-groups-json-of-all-groups>Get all groups (json of all groups)<a href=#get-all-groups-json-of-all-groups class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_all_groups&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;,
+    &quot;groups&quot;: {
+        &quot;ac9aa887-8d66-440d-b6fa-74ac2cbe9aed&quot;: {
+            &quot;entities&quot;: [
+                &quot;climate.kitchen_radiator_heating_1&quot;
+            ],
+            &quot;name&quot;: &quot;Heating&quot;,
+            &quot;switch&quot;: false
+        },
+        &quot;ac9aa887-8d66-570d-b6fa-74ac2cbe9aed&quot;: {
+            &quot;entities&quot;: [
+                &quot;climate.bedroom_radiator_heating_1&quot;
+            ],
+            &quot;name&quot;: &quot;Heating&quot;,
+            &quot;switch&quot;: false
+        }
+    }
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=add-new-group>Add new group<a href=#add-new-group class=anchor aria-hidden=true>#</a></h3><p>Create new group and add it to the config.
+Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;add_group&quot;,
+    &quot;group&quot;: {
+        &quot;&lt;uuid&gt;&quot;: {
+            &quot;entities&quot;: [
+                &quot;climate.bedroom_radiator_heating_1&quot;
+            ],
+            &quot;name&quot;: &quot;Heating&quot;
+        }
+    }
+}
+</code></pre><p><code>uuid</code> is the unique id of the group
+<code>entitie</code> entities that the group contains
+<code>name</code> name of the group</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=update-group>Update group<a href=#update-group class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;update_group&quot;,
+    &quot;&lt;uuid&gt;&quot;: {
+            &quot;entities&quot;: [
+                &quot;climate.bedroom_radiator_heating_1&quot;
+            ],
+            &quot;name&quot;: &quot;Heating&quot;
+    }
+}
+</code></pre><p><code>uuid</code> is the unique id of the group
+<code>entitie</code> entities that the group contains
+<code>name</code> name of the group</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=remove-group>Remove group<a href=#remove-group class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;remove_group&quot;,
+    &quot;id&quot;: &quot;ac9aa887-8d66-440d-b6fa-74ac2cbe9aed&quot;
+}
+</code></pre><p><code>id</code> is the unique id of the group</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h2 id=settings>Settings<a href=#settings class=anchor aria-hidden=true>#</a></h2><h3 id=get-language-list-list-of-all-languages>Get language list (list of all languages)<a href=#get-language-list-list-of-all-languages class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;get_languages&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+    &quot;languages&quot;: [
+        {
+            &quot;name&quot;: &quot;български&quot;,
+            &quot;id&quot;: &quot;bg_BG&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Català&quot;,
+            &quot;id&quot;: &quot;ca_ES&quot;
+        },
+        {
+            &quot;name&quot;: &quot;Čeština&quot;,
+            &quot;id&quot;: &quot;cs_CZ&quot;
+        }
+    ]
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=set-language>Set language<a href=#set-language class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;set_language&quot;,
+    &quot;language&quot;: &quot;bg_BG&quot;
+}
+</code></pre><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=set-auto-brightness>Set auto brightness<a href=#set-auto-brightness class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;set_auto_brightness&quot;,
+    &quot;value&quot;: true
+}
+</code></pre><p><code>value</code> true or false for on and off</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><h3 id=set-dark-mode>Set dark mode<a href=#set-dark-mode class=anchor aria-hidden=true>#</a></h3><p>Command:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;type&quot;: &quot;set_dark_mode&quot;,
+    &quot;value&quot;: true
+}
+</code></pre><p><code>value</code> true or false for on and off</p><p>Response on success:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: true,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p>Response on failure:</p><pre><code>{
+    &quot;id&quot;: 22,
+    &quot;success&quot;: false,
+    &quot;type&quot;: &quot;result&quot;
+}
+</code></pre><p class=edit-page><a href=https://github.com/YIO-Remote/documentation/blob/master/content/docs/api/index.md><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828.0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>Edit this page on GitHub</a></p><div class="docs-navigation d-flex justify-content-between"><a href=https://yio-remote.github.io/documentation/docs/integrations/home-assistant/><div class="card my-1"><div class="card-body py-2">&larr; Home Assistant</div></div></a><a class=ms-auto href=https://yio-remote.github.io/documentation/docs/configuration/web-interface/><div class="card my-1"><div class="card-body py-2">Web Interface &rarr;</div></div></a></div></main></div></div></div><footer class="footer text-muted"><div class=container><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Documentation by the YIO community - Website powered by <a href=https://gohugo.io/>Hugo</a> and <a href=https://getdoks.org/>Doks</a> theme</li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=https://yio-remote.github.io/documentation/js/highlight.min.e9108a0b3c03958002f9650a02a3c3dcc2c69459b908c8440f7d2ad360aa0f216c0023ba6192f82a8bdbd996bd314e1e0cff114a8f54a0166630560d0be8ede7.js integrity="sha512-6RCKCzwDlYAC+WUKAqPD3MLGlFm5CMhED30q02CqDyFsACO6YZL4Kovb2Za9MU4eDP8RSo9UoBZmMFYNC+jt5w==" crossorigin=anonymous defer></script><script src=https://yio-remote.github.io/documentation/main.min.7ab523108435955765bcb88a0ee704f412ba01646b5478e84f3b9feb24f0ce750a14c3f7bd9a62408fe21e41996d361a9eb29f77e85dfe77b7e17f7623bd3a97.js integrity="sha512-erUjEIQ1lVdlvLiKDucE9BK6AWRrVHjoTzuf6yTwznUKFMP3vZpiQI/iHkGZbTYanrKfd+hd/ne34X92I706lw==" crossorigin=anonymous defer></script><script src=https://yio-remote.github.io/documentation/index.min.e14891b6d51048ed19820a09e27eadf203203e236ff4c63b52693320a4f3d78c25e581955ace855112d9080fbbb5424be52abc1702187ef3badc1c447f9545a9.js integrity="sha512-4UiRttUQSO0ZggoJ4n6t8gMgPiNv9MY7UmkzIKTz14wl5YGVWs6FURLZCA+7tUJL5Sq8FwIYfvO63BxEf5VFqQ==" crossorigin=anonymous defer></script></body></html>
