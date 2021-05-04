@@ -1,6 +1,6 @@
 # YIO Documentation
 
-This is the source for the [YIO documentation](https://timewalker.github.io/docuemntation).
+This is the source for the [YIO documentation](https://yio-remote.github.io/documentation).
 
 ## Setup
 
