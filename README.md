@@ -5,7 +5,7 @@ This is the source for the [YIO documentation](https://yio-remote.github.io/docu
 ## Setup
 
 For an easy installation, install node.js (preferably LTS) and run:
-`npm install``
+`npm install`
 
 This installs all the necessary depedencies Hugo and Doks.
 You can also run Hugo with the standalone binary but this is currently untested.
