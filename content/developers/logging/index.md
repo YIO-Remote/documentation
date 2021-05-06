@@ -1,7 +1,6 @@
 ---
 title: "Logging"
 description: "The YIO logging features are based on the Qt logging framework and fully supports custom message pattern and logging rules."
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "home"

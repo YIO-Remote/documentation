@@ -1,7 +1,6 @@
 ---
 title: "Entity types"
 description: "Entities are the central interface objects between the integrations and the YIO-Remote UI."
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "home"

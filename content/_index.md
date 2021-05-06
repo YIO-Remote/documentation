@@ -1,7 +1,6 @@
 ---
 title: "YIO Remote"
 description: "Beautifully crafted, do-it-yourself open source touchscreen remote made to work with home automation systems. Running on a Raspberry Pi Zero W."
-images: ["yio-logo.png"]
 type: "docs"
 layout: "single"
 menu:

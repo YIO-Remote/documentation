@@ -1,7 +1,6 @@
 ---
 title: "Remote"
 description: "The YIO remotes is designed as HID for all kind of SmartHome backend Systems and SmartHome devices."
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "hardware"

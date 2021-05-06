@@ -1,7 +1,6 @@
 ---
 title: "Web Interface"
 description: ""
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "configuration"

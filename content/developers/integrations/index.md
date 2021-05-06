@@ -1,7 +1,6 @@
 ---
 title: "Creating integrations"
 description: "Integrations are the interface between YIO-remote and the outside world."
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "home"

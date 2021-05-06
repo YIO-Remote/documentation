@@ -1,7 +1,6 @@
 ---
 title: "Setup QT IDE"
 description: "The development of the YIO Remote software doesn't require a physical YIO Remote or a Raspberry Pi!"
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "build-environment"

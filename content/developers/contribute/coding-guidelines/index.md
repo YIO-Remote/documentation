@@ -1,7 +1,6 @@
 ---
 title: "Coding guidelines"
 description: "The is the coding standardization for the YIO Remote project."
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "home"

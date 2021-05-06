@@ -1,7 +1,6 @@
 ---
 title: "API"
 description: "YIO is providing several API Services. To find out more about the different APIs follow the documentation beneth."
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "developers-api"

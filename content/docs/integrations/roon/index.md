@@ -1,7 +1,6 @@
 ---
 title: "Roon"
 description: "Control your Roon server with the YIO remote"
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "integrations"

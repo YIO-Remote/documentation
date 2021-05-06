@@ -1,7 +1,6 @@
 ---
 title: "Spotify"
 description: "Control your Spotify music with the YIO remote"
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "integrations"

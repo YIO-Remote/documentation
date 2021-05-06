@@ -1,7 +1,6 @@
 ---
 title: "Home Assistant"
 description: "Original SmartHome Backend software Home Assistant for which an integration has been written."
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "integrations"

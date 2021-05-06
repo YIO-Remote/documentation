@@ -1,7 +1,6 @@
 ---
 title: "Remote API"
 description: "There's a websocket based API for communicating with the remote, running on port 946(YIO). Mainly used by the web configurator tool and the YIO Dock."
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "home"

@@ -1,7 +1,6 @@
 ---
 title: "Setup Ubuntu Developer VM"
 description: "This guide describes the setup of an Ubuntu VM for the complete YIO Remote development"
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "build-environment"
