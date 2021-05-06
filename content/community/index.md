@@ -1,7 +1,6 @@
 ---
 title: "YIO Community"
 description: "Join our YIO Remote community!"
-images: ["yio-logo.png"]
 ---
 
 ## Talk with us

@@ -1,7 +1,6 @@
 ---
 title: "YIO Dock"
 description: "Control your YIO dock with the YIO remote"
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "integrations"

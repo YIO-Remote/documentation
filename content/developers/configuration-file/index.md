@@ -1,7 +1,6 @@
 ---
 title: "Configuration file"
 description: "The config.json file is used by the YIO software to determine the integrations, the look and use of YIO."
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "home"

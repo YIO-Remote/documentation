@@ -1,7 +1,6 @@
 ---
 title: "SSH / SCP"
 description: "YIO-OS supports both SSH and SCP. SSH can be used to get a terminal on the remote while SCP can be used to transfer files from and to the remote."
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "home"

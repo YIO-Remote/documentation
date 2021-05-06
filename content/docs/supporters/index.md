@@ -1,7 +1,6 @@
 ---
 title: "Supporters"
 description: ""
-images: ["yio-logo.png"]
 type: "docs"
 layout: "single"
 menu:

@@ -1,7 +1,6 @@
 ---
 title: "Homey"
 description: "Home automation software Homey for which an integration has been written."
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "integrations"

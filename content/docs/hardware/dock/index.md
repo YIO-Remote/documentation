@@ -1,7 +1,6 @@
 ---
 title: "Dock"
 description: "The YIO Dock charges the remote and functions as an IR receiver and blaster."
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "hardware"

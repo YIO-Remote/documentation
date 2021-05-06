@@ -1,7 +1,6 @@
 ---
 title: "Buildroot"
 description: "The YIO Remote uses a custom Linux OS for the Raspberry Pi Zero board built with Buildroot"
-images: ["yio-logo.png"]
 menu:
   developers:
     parent: "build-environment"

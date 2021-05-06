@@ -1,7 +1,6 @@
 ---
 title: "Frequently Asked Questions"
 description: "Frequently asked questions about the YIO Remote."
-images: ["yio-logo.png"]
 menu:
   docs:
     parent: "home"

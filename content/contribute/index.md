@@ -1,7 +1,6 @@
 ---
 title: "Contribute to YIO"
 description: "Find out how you can contribute to the open source YIO project"
-images: ["yio-logo.png"]
 ---
 
 We appreciate any help with the open source YIO project.
