@@ -6,17 +6,25 @@ titleSeparator = "-"
 titleAddition = "Documentation"
 description = "YIO Remote is an open-source, Raspberry Pi Zero W based, high quality DIY touchscreen remote."
 
-## Open Graph + Twitter Cards
+## Open Graph
 images = ["yio-logo.png"]
+ogLocale = "en_US"
+domainTLD = "yio-remote.github.io"
+titleHome = "YIO Remote Documentation"
+
+## Twitter Cards
 twitterSite = "yioremote"
 twitterCreator = "yioremote"
+## Facebook Cards
 facebookAuthor = "YIOremote"
 facebookPublisher = "YIOremote"
-ogLocale = "en_US"
 
 ## JSON-LD
 schemaType = "Organization"
+schemaName = "YIO Remote Documentation"
+schemaLocale = "en-US"
 schemaLogo = "yio-logo.png"
+schemaImage = "yio-logo.png"
 schemaTwitter = "https://twitter.com/yioremote"
 schemaGitHub = "https://github.com/YIO-remote"
 schemaSection = "blog"
@@ -51,7 +59,8 @@ editPage = true
   instantPage = true
   flexSearch = true
   darkMode = true
-  bootStrapJs = false
+  bootStrapJs = true
   breadCrumb = false
   highLight = true
   kaTex = false
+  collapsibleSidebar = true
