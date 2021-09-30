@@ -1,13 +1,13 @@
 ---
 title: "Remote"
-description: "The YIO remotes is designed as HID for all kind of SmartHome backend Systems and SmartHome devices."
+description: "The YIO remote is designed as HID for all kinds of SmartHome backend Systems and SmartHome devices."
 menu:
   docs:
     parent: "hardware"
 weight: 20
 ---
 
-The YIO remotes is designed as [HID](https://en.wikipedia.org/wiki/Human_interface_device) for all kind of SmartHome backend Systems and SmartHome devices. More Information about supported Integrations can be found in the menu.
+The YIO remote is designed as [HID](https://en.wikipedia.org/wiki/Human_interface_device) for all kinds of SmartHome backend Systems and SmartHome devices. More Information about supported integrations can be found in the menu.
 
 ### YIO Remote Hardware
 
@@ -23,4 +23,4 @@ The YIO remotes is designed as [HID](https://en.wikipedia.org/wiki/Human_interfa
 
 ### YIO Remote Software
 
-The Project is based on a custom [buildroot](https://buildroot.org/) system with UI designed and programmed in [Qt Open Source](https://www.qt.io/download-open-source). Remote and Dock communicate with each other to enable IR Support bidirectional.
+The Project is based on a custom [buildroot](https://buildroot.org/) system with UI designed and programmed in [Qt Open Source](https://www.qt.io/download-open-source). The Remote and Dock communicate with each other to enable bidirectional IR Support.
